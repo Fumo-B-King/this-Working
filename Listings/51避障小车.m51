@@ -1,0 +1,239 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/30/2024  14:13:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\motor.obj, .\Objects\Timer.obj TO .\
+>> Objects\51避障小车 PRINT (.\Listings\51避障小车.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\motor.obj (MOTOR)
+  .\Objects\Timer.obj (TIMER)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?FPADD)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?FCAST)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?CASTF)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51S.LIB (?C?LNEG)
+  D:\HUB OF SOFTWARE\PROGRAM\KEIL5 C51\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\51避障小车 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     036BH     UNIT         ?C?LIB_CODE
+            CODE    0B6BH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0BF7H     004CH     UNIT         ?PR?ULTRASONIC?TIMER
+            CODE    0C43H     0033H     UNIT         ?PR?MAIN?MAIN
+            CODE    0C76H     000FH     UNIT         ?PR?DELAY?MOTOR
+            CODE    0C85H     0005H     UNIT         ?PR?DELAY_U?TIMER
+            CODE    0C8AH     0004H     UNIT         ?C_INITSEG
+            CODE    0C8EH     0004H     UNIT         ?PR?FORWARD?MOTOR
+            CODE    0C92H     0004H     UNIT         ?PR?BACKWARD?MOTOR
+            CODE    0C96H     0004H     UNIT         ?PR?LEFT?MOTOR
+            CODE    0C9AH     0004H     UNIT         ?PR?RIGHT?MOTOR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\51避障小车 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/30/2024  14:13:10  PAGE 2
+
+
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?FORWARD?MOTOR
+  +--> ?PR?ULTRASONIC?TIMER
+  +--> ?PR?LEFT?MOTOR
+  +--> ?PR?DELAY?MOTOR
+  +--> ?PR?RIGHT?MOTOR
+
+?PR?ULTRASONIC?TIMER
+  +--> ?PR?DELAY_U?TIMER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\51避障小车 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        maxdistance
+  C:0C43H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  D:0009H         PUBLIC        distance
+  -------         PROC          MAIN
+  C:0C43H         LINE#         10
+  C:0C43H         LINE#         12
+  C:0C46H         LINE#         13
+  C:0C49H         LINE#         15
+  C:0C49H         LINE#         17
+  C:0C4CH         LINE#         19
+  C:0C4FH         LINE#         21
+  C:0C56H         LINE#         22
+  C:0C59H         LINE#         23
+  C:0C5CH         LINE#         24
+  C:0C5FH         LINE#         25
+  C:0C66H         LINE#         26
+  C:0C69H         LINE#         27
+  C:0C6CH         LINE#         28
+  C:0C6FH         LINE#         29
+  C:0C6FH         LINE#         30
+  C:0C71H         LINE#         31
+  C:0C71H         LINE#         32
+  C:0C74H         LINE#         33
+  C:0C74H         LINE#         37
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0C9AH         PUBLIC        Right
+  C:0C96H         PUBLIC        Left
+  C:0C92H         PUBLIC        Backward
+  C:0C8EH         PUBLIC        Forward
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/30/2024  14:13:10  PAGE 3
+
+
+  C:0C76H         PUBLIC        Delay
+  -------         PROC          DELAY
+  -------         DO            
+  D:0007H         SYMBOL        k
+  D:0006H         SYMBOL        i
+  D:0005H         SYMBOL        j
+  -------         ENDDO         
+  C:0C76H         LINE#         3
+  C:0C76H         LINE#         4
+  C:0C76H         LINE#         7
+  C:0C78H         LINE#         8
+  C:0C7AH         LINE#         9
+  C:0C7CH         LINE#         10
+  C:0C7CH         LINE#         11
+  C:0C7EH         LINE#         12
+  C:0C80H         LINE#         13
+  C:0C84H         LINE#         14
+  -------         ENDPROC       DELAY
+  -------         PROC          FORWARD
+  C:0C8EH         LINE#         18
+  C:0C8EH         LINE#         19
+  C:0C91H         LINE#         20
+  -------         ENDPROC       FORWARD
+  -------         PROC          BACKWARD
+  C:0C92H         LINE#         22
+  C:0C92H         LINE#         23
+  C:0C95H         LINE#         24
+  -------         ENDPROC       BACKWARD
+  -------         PROC          LEFT
+  C:0C96H         LINE#         26
+  C:0C96H         LINE#         27
+  C:0C99H         LINE#         28
+  -------         ENDPROC       LEFT
+  -------         PROC          RIGHT
+  C:0C9AH         LINE#         30
+  C:0C9AH         LINE#         31
+  C:0C9DH         LINE#         32
+  -------         ENDPROC       RIGHT
+  -------         ENDMOD        MOTOR
+
+  -------         MODULE        TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.1       PUBLIC        P1_1
+  B:0090H.4       PUBLIC        P1_4
+  C:0C85H         PUBLIC        Delay_u
+  C:0BF7H         PUBLIC        ultrasonic
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  D:008AH         PUBLIC        TL0
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          DELAY_U
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0C85H         LINE#         6
+  C:0C85H         LINE#         8
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/30/2024  14:13:10  PAGE 4
+
+
+  C:0C87H         LINE#         9
+  C:0C89H         LINE#         10
+  -------         ENDPROC       DELAY_U
+  -------         PROC          ULTRASONIC
+  C:0BF7H         LINE#         13
+  C:0BF7H         LINE#         15
+  C:0BF9H         LINE#         16
+  C:0BFCH         LINE#         17
+  C:0BFEH         LINE#         18
+  C:0C01H         LINE#         19
+  C:0C03H         LINE#         21
+  C:0C06H         LINE#         22
+  C:0C08H         LINE#         23
+  C:0C0BH         LINE#         24
+  C:0C0DH         LINE#         26
+  C:0C42H         LINE#         28
+  -------         ENDPROC       ULTRASONIC
+  -------         ENDMOD        TIMER
+
+  -------         MODULE        ?C?FPADD
+  C:0807H         PUBLIC        ?C?FPADD
+  C:0803H         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:08F8H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0A01H         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:0AA8H         PUBLIC        ?C?FCASTC
+  C:0AA3H         PUBLIC        ?C?FCASTI
+  C:0A9EH         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:0ADCH         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?LNEG
+  C:0B5DH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BACKWARD?MOTOR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A6H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=1185
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,54 @@
+C51 COMPILER V9.54   TIMER                                                                 08/30/2024 14:13:10 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\Objects\Timer.obj
+COMPILER INVOKED BY: D:\Hub of Software\Program\Keil5 C51\C51\BIN\C51.EXE Timer.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTE
+                    -XTEND PRINT(.\Listings\Timer.lst) OBJECT(.\Objects\Timer.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          extern unsigned char distance;
+   4          extern unsigned char maxdistance;
+   5          
+   6          void Delay_u() {
+   7   1              unsigned char i;
+   8   1              i = 39;
+   9   1              while (--i);
+  10   1      }
+  11          
+  12          
+  13          void ultrasonic() {
+  14   1      
+  15   1              P1_1 = 1;
+  16   1              Delay_u();
+  17   1              P1_1 = 0;
+  18   1              TL0 = 0x00;
+  19   1              TH0 = 0x00;
+  20   1              
+  21   1              while(!P1_4);
+  22   1              TR1 = 1;
+  23   1              while(P1_4);
+  24   1              TR1 = 0;
+  25   1              
+  26   1              distance = ((TH1 * 256 + TL1) * 0.034) / 2 + 1;
+  27   1              
+  28   1      }
+  29          
+  30          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     81    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
